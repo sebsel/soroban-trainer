@@ -3,20 +3,21 @@
   <head>
     <title>Soroban trainer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="./style.css"/>
   </head>
   <body>
-    <div>
-      Welcome to the Soroban.
-    </div>
     <div id="container">
       <form id="settings" class="active">
-        <div>
+        <div class="title">
+          Welcome to the Soroban trainer.
+        </div>
+        <div class="input">
           <label for="digits">Number of digits</label>
           <input type="number" id="digits" value="1" required />
         </div>
 
-        <div>
+        <div class="input">
           <label for="rows">Number of rows</label>
           <input type="number" id="rows" value="5" required />
         </div>
@@ -25,12 +26,9 @@
           <button>Play</button>
         </div>
       </form>
-      <form id="assignment">
+      <div id="assignment">
         <div class="rows"><!-- filled by Javascript --></div>
-        <div>
-          <button>Show answer</button>
-        </div>
-      </form>
+      </div>
       <form id="result">
         <div class="answer"><!-- filled by Javascript --></div>
         <div class="time"><!-- filled by Javascript --></div>

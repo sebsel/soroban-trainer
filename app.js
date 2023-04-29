@@ -69,7 +69,6 @@ function advance(event) {
 }
 
 document.getElementById('settings').addEventListener('submit', play)
-document.getElementById('assignment').addEventListener('submit', reveal)
 document.getElementById('result').addEventListener('submit', play)
 document.getElementById('reset').addEventListener('click', reset)
 

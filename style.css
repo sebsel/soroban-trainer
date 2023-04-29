@@ -5,6 +5,10 @@ body {
 #settings, #assignment, #result { display: none }
 #settings.active, #assignment.active, #result.active { display: flex; flex-direction: column }
 
+#settings .title, #settings .input {
+  margin-bottom: 0.5rem;
+}
+
 #assignment .row {
   margin-bottom: 20px;
   font-size: 3rem;
