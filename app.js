@@ -14,7 +14,10 @@ function stopTimer() {
   return new Date() - timer
 }
 
+let state = 'settings'
+
 function play(event) {
+  state = 'assignment'
   event.preventDefault()
   let digits = document.getElementById('digits').value
   let rows = document.getElementById('rows').value
@@ -28,30 +31,46 @@ function play(event) {
     result += digit
   }
   document.getElementById('result').getElementsByClassName('answer')[0].innerHTML = result
-
-  document.getElementById('settings').classList.remove('active')
-  document.getElementById('assignment').classList.add('active')
-  document.getElementById('result').classList.remove('active')
+  render()
   startTimer()
 }
 
 function reveal(event) {
+  state = 'result'
+  console.log(state)
   event.preventDefault()
-  document.getElementById('settings').classList.remove('active')
-  document.getElementById('assignment').classList.add('active')
-  document.getElementById('result').classList.add('active')
   let time = `${stopTimer() / 1000}s`
   document.getElementById('result').getElementsByClassName('time')[0].innerHTML = time
+  render()
 }
 
 function reset(event) {
+  state = 'settings'
   event.preventDefault()
-  document.getElementById('settings').classList.add('active')
-  document.getElementById('assignment').classList.remove('active')
-  document.getElementById('result').classList.remove('active')
+  render()
 }
 
+function render() {
+  document.getElementById('settings').classList.remove('active')
+  document.getElementById('assignment').classList.remove('active')
+  document.getElementById('result').classList.remove('active')
+  if (state === 'settings') document.getElementById('settings').classList.add('active')
+  if (state === 'assignment') document.getElementById('assignment').classList.add('active')
+  if (state === 'result') {
+    document.getElementById('assignment').classList.add('active')
+    document.getElementById('result').classList.add('active')
+  }
+
+}
 document.getElementById('settings').addEventListener('submit', play)
 document.getElementById('assignment').addEventListener('submit', reveal)
 document.getElementById('result').addEventListener('submit', play)
 document.getElementById('reset').addEventListener('click', reset)
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    if (state === 'settings') return play(event)
+    if (state === 'assignment') return reveal(event)
+    if (state === 'result') return play(event)
+  }
+})
