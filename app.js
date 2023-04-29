@@ -60,17 +60,20 @@ function render() {
     document.getElementById('assignment').classList.add('active')
     document.getElementById('result').classList.add('active')
   }
-
 }
+
+function advance(event) {
+  if (state === 'settings') return play(event)
+  if (state === 'assignment') return reveal(event)
+  if (state === 'result') return play(event)
+}
+
 document.getElementById('settings').addEventListener('submit', play)
 document.getElementById('assignment').addEventListener('submit', reveal)
 document.getElementById('result').addEventListener('submit', play)
 document.getElementById('reset').addEventListener('click', reset)
 
+document.getElementById('next').addEventListener('click', advance)
 document.addEventListener('keydown', event => {
-  if (event.key === 'Enter' || event.key === ' ') {
-    if (state === 'settings') return play(event)
-    if (state === 'assignment') return reveal(event)
-    if (state === 'result') return play(event)
-  }
+  if (event.key === 'Enter' || event.key === ' ') advance(event)
 })

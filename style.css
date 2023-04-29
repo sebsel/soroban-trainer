@@ -23,3 +23,14 @@ body {
   font-size: 5rem;
   margin-bottom: 1rem;
 }
+
+#corner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+#corner #next {
+  font-size: 2rem;
+}
