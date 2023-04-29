@@ -3,6 +3,14 @@ body {
 }
 
 #settings, #assignment, #result { display: none }
-#settings.active, #assignment.active, #result.active { display: block }
+#settings.active, #assignment.active, #result.active { display: flex; flex-direction: column }
 
 .row { margin-bottom: 20px }
+
+#container {
+  display: flex;
+}
+
+#assignment, #result {
+  flex: 1;
+}

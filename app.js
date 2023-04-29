@@ -1,9 +1,9 @@
 function getRandomNumber(digits) {
   let buffer = new Uint8Array(digits)
   crypto.getRandomValues(buffer)
-  let int = parseInt(buffer.map(d => d % 10).join(''))
-  if (int === 0) return getRandomNumber(digits)
-  return int
+  let number = buffer.map(d => d % 10).join('')
+  if (number[0] === '0') return getRandomNumber(digits)
+  return parseInt(number)
 }
 
 function play(event) {
@@ -29,7 +29,7 @@ function play(event) {
 function reveal(event) {
   event.preventDefault()
   document.getElementById('settings').classList.remove('active')
-  document.getElementById('assignment').classList.remove('active')
+  document.getElementById('assignment').classList.add('active')
   document.getElementById('result').classList.add('active')
 }
 
@@ -42,4 +42,5 @@ function reset(event) {
 
 document.getElementById('settings').addEventListener('submit', play)
 document.getElementById('assignment').addEventListener('submit', reveal)
-document.getElementById('result').addEventListener('submit', reset)
+document.getElementById('result').addEventListener('submit', play)
+document.getElementById('reset').addEventListener('click', reset)

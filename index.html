@@ -6,9 +6,9 @@
   </head>
   <body>
     <div>
-      <div>
-        Welcome to the Soroban.
-      </div>
+      Welcome to the Soroban.
+    </div>
+    <div id="container">
       <form id="settings" class="active">
         <div>
           <label for="digits">Number of digits</label>
@@ -28,12 +28,15 @@
         <div class="rows"><!-- filled by Javascript --></div>
 
         <div>
-          <button>Next</button>
+          <button>Show answer</button>
         </div>
       </form>
       <form id="result">
         <div class="answer"><!-- filled by Javascript --></div>
-        <button>Next</button>
+        <div>
+          <button>Next</button>
+          <button id="reset" type="button">Reset</button>
+        </div>
       </form>
     </div>
 
