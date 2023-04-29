@@ -1,3 +1,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica, helvetica neue, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
+
+#settings, #assignment, #result { display: none }
+#settings.active, #assignment.active, #result.active { display: block }
+
+.row { margin-bottom: 20px }
