@@ -14,3 +14,8 @@ body {
 #assignment, #result {
   flex: 1;
 }
+
+#result .answer {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

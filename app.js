@@ -6,6 +6,14 @@ function getRandomNumber(digits) {
   return parseInt(number)
 }
 
+let timer = null
+function startTimer() {
+  timer = new Date()
+}
+function stopTimer() {
+  return new Date() - timer
+}
+
 function play(event) {
   event.preventDefault()
   let digits = document.getElementById('digits').value
@@ -24,6 +32,7 @@ function play(event) {
   document.getElementById('settings').classList.remove('active')
   document.getElementById('assignment').classList.add('active')
   document.getElementById('result').classList.remove('active')
+  startTimer()
 }
 
 function reveal(event) {
@@ -31,6 +40,8 @@ function reveal(event) {
   document.getElementById('settings').classList.remove('active')
   document.getElementById('assignment').classList.add('active')
   document.getElementById('result').classList.add('active')
+  let time = `${stopTimer() / 1000}s`
+  document.getElementById('result').getElementsByClassName('time')[0].innerHTML = time
 }
 
 function reset(event) {
