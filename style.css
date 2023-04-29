@@ -5,17 +5,21 @@ body {
 #settings, #assignment, #result { display: none }
 #settings.active, #assignment.active, #result.active { display: flex; flex-direction: column }
 
-.row { margin-bottom: 20px }
+#assignment .row {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  text-align: center;
+}
 
 #container {
   display: flex;
 }
 
 #assignment, #result {
-  flex: 1;
+  width: 50%;
 }
 
 #result .answer {
-  font-size: 2rem;
+  font-size: 5rem;
   margin-bottom: 1rem;
 }
